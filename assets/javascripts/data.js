@@ -2,7 +2,7 @@
 
 function doAjax(parameter){
     var pr = new Promise((resolve,reject)=>{
-        const url =`https://itunes.apple.com/search?term=${parameter}&media=music`;
+        const url =`https://itunes.apple.com/search?term=${parameter}&limit=25&media=music`;
         fetch(url).then(response=>response.json().then(json=>{
            resolve(json.results); 
         })).catch(err=>console.log(err));
