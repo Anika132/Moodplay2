@@ -7,7 +7,7 @@ function doAjax(parameter){
             method: "get",
             headers: 
             {
-                 "Access-Control-Allow-Origin": "*",
+                 "Access-Control-Allow-Origin": "https://anika132.github.io/Moodplay2/",
                  "Content-Type": "application/json"
             }
       }).then(response=>response.json().then(json=>{
