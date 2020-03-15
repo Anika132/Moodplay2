@@ -4,8 +4,13 @@ function doAjax(parameter){
     var pr = new Promise((resolve,reject)=>{
         const url =`https://itunes.apple.com/search?term=${parameter}&media=music`;
         fetch(url,{
-            mode: 'no-cors' // 'cors' by default
-        }).then(response=>response.json().then(json=>{
+            method: "get",
+            headers: 
+            {
+                 "Access-Control-Allow-Origin": "*",
+                 "Content-Type": "application/json"
+            }
+      }).then(response=>response.json().then(json=>{
            resolve(json.results); 
         })).catch(err=>console.log(err));
     });
