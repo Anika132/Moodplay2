@@ -6,449 +6,169 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MoodPlay</title>
     <link rel="icon" href="assets/images/favicon.png">
-    <link rel="stylesheet" href="assets/stylesheets/fontawesome-all.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/slider.css">
     <link rel="stylesheet" href="assets/stylesheets/main.css">
-    <script src="assets/javascripts/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Charm|Cookie&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="assets/javascripts/slider.js"></script>
+    <script src="assets/javascripts/data.js"></script>
     <script src="assets/javascripts/song.js"></script>
-    <script src="assets/javascripts/eng.js"></script>
-    <script src="assets/javascripts/punjabi.js"></script>
-    <script src="assets/javascripts/hindi.js"></script>
     <script src="assets/javascripts/main.js"></script>
     <script src="assets/javascripts/script.js"></script>
+    <script type="text/javascript">
+      $(function () {
+          $('#vmc-slide').vmcSimpleSlide({
+              minWidth: 400
+          });
+          $('#re-size').on('click', function () {
+              $('#vmc-slide').vmcSimpleSlide('reSize');
+          });
+          $('#show-box').on('click', function () {
+              $('#vmc-slide').show();
+          });
+          $('#hide-box').on('click', function () {
+              $('#vmc-slide').hide();
+          });
+          $('#show-box-2').on('click', function () {
+              $('#vmc-slide').show();
+              $('#vmc-slide').vmcSimpleSlide('reSize');
+          });
+      });
+  </script>
 </head>
 <body>
-    <div class="slider-container">
-        <div class="slider-control left inactive"></div>
-        <div class="slider-control right"></div>
-        <ul class="slider-pagi"></ul>
-        <div class="slider">
-          <div class="slide slide-0 active">
-            <div class="slide__bg"></div>
-            <div class="slide__content">
-              <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-                <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-              </svg>
-              <div class="slide__text">
-                <h2 class="slide__text-heading">Top-20</h2>
-                <p class="slide__text-desc"></p>
-                <a class="slide__text-link">Listen <i class="fas fa-headphones"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="slide slide-1 ">
-            <div class="slide__bg"></div>
-            <div class="slide__content">
-              <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-                <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-              </svg>
-              <div class="slide__text">
-                <h2 class="slide__text-heading">New Releases</h2>
-                <p class="slide__text-desc"></p>
-                <a class="slide__text-link">Listen <i class="fas fa-headphones"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="slide slide-2">
-            <div class="slide__bg"></div>
-            <div class="slide__content">
-              <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-                <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-              </svg>
-              <div class="slide__text">
-                <h2 class="slide__text-heading">Top Rap Albums</h2>
-                <p class="slide__text-desc"></p>
-                <a class="slide__text-link">Listen <i class="fas fa-headphones"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="slide slide-3">
-            <div class="slide__bg"></div>
-            <div class="slide__content">
-              <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-                <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-              </svg>
-              <div class="slide__text">
-                <h2 class="slide__text-heading">Best Of All</h2>
-                <p class="slide__text-desc"></p>
-                <a class="slide__text-link">Listen <i class="fas fa-headphones"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab">
-        <button class="tablinks" onclick="search()" id="searchbtn"><i class="fas fas fa-search fa-4x" id="searchbutton"></i><input type="search" name="search" id="input" class="input"></button>
+
+
+      <div class="tab" id="nav-menu">
         <button class="tablinks "  onclick="openTab(event, 'Home')"  id="defaultOpen"><i class="fas fa-home fa-4x"></i><span class="tooltiptext">Home</span></button>
-        <button class="tablinks " onclick="openTab(event, 'Albums')" id="tooltip"><i class="fas fa-users fa-4x"></i><span class="tooltiptext">Albums</span></button>
-        <button class="tablinks" onclick="openTab(event, 'Fav')" id="tooltip"><i class="far fa-heart fa-4x"></i><span class="tooltiptext">Fav</span></button>
-        <button class="tablinks " onclick="openTab(event, 'Songs')" id="tooltip"><i class="fas fa-music fa-4x"></i><span class="tooltiptext">Songs</span></button>
+        <button class="tablinks " onclick="openTab(event, 'Search')" id="tooltip"><i class="fas fas fa-search fa-4x"></i><span class="tooltiptext">Search</span></button>
         <button class="tablinks " onclick="openTab(event, 'Saved')" id="tooltip"><i class="far fa-list-alt fa-4x"></i><span class="tooltiptext">PlayList</span></button>
+        <button class="tablinks" onclick="openTab(event, 'Contact')" id="tooltip"><i class="fas fa-envelope-open-text fa-4x"></i><span class="tooltiptext">Contact</span></button>  
 
       </div>
       
-      <div id="Home" class="tabcontent">
-       <div id="row">
-         <div class="column">
-            <img src="assets/images/a.jpg" alt="">
-            <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-                 <div class="text">Jazz <i class="fas fa-tree"></i></div>
-               </div></span>
-         </div>
-         <div class="column">
-          <img src="assets/images/b.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-            <div class="text">Opera <i class="fas fa-glass-martini "></i></div>
-          </div></span>
-           </div>        
-           <div class="column">
-           <img src="assets/images/c.jpg" alt="">
-           <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-           <div class="text">Gym <i class="fas fa-dumbbell"></i></div>
-          </div></span>
-           </div>
-          <div class="column">
-          <img src="assets/images/d.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Sad <i class="far fa-frown"></i></div>
-          </div></span>
-           </div>
-          <div class="column">
-          <img src="assets/images/e.png" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Blues <i class="fas fa-feather "></i></div>
-          </div></span>
-         </div>
-         <div class="column">
-          <img src="assets/images/f.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Kids <i class="fas fa-child"></i></div>
-          </div></span>
-         </div>
-         <div class="column">
-          <img src="assets/images/g.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Classical <i class="fas fa-leaf"></i></div>
-          </div></span>
+      <div id="Home" class="home-tabcontent tabcontent">
+          <div class="box" id="vmc-slide">
+                  <ul>
+                      <li><img src="assets/images/ba1.jpg"></li>
+                      <li><img src="https://static1.squarespace.com/static/58d64878a5790a257a87ae5b/t/58e01fb203596ea5848a760d/1491083193741/music.jpg"></li>
+                      <li><img src="assets/images/banner.jpg" alt=""></li>
+                      <li><img src="assets/images/b3.jpg" alt=""></li>
+                      <li><img src="assets/images/banner3.jpg" alt=""></li>
+                      <li><img src="assets/images/banner2.jpg" alt=""></li>
+                  </ul>
           </div>
-          <div class="column">
-            <img src="assets/images/h.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Dance <i class="fas fa-walking"></i></div>
-            </div></span>
-         </div>
-         <div class="column">
-          <img src="assets/images/i.png" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">EDM <i class="fab fa-d-and-d"></i></div>
-          </div></span>
-         </div>
-         <div class="column">
-          <img src="assets/images/j.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Hip Hop <i class="fab fab fa-grunt"></i></div>
-          </div></span>
-        </div>
-        <div class="column">
-         <img src="assets/images/k.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Rap <i class="fab fas fa-skull"></i></div>
-        </div></span>
+          <div id="maincontent">
+             <div id="Pop"></div>
+             <div id="Bollywood"></div>
+             <div id="Punjabi"></div>
+             <div id="EDM"></div>
+             <div id="Classics"></div>
+             <div id="Melody"></div>
+
           </div>
-          <div class="column">
-           <img src="assets/images/l.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Bollywood <i class="fas fa-film"></i></div>
-          </div></span>
+      </div>
+      
+      <div id="Search" class="tabcontent">
+         <span class="search-btn"><i class="fas fas fa-search fa-4x"></i></span>
+         <input type="search" name="search" id="search-input" class="input" placeholder="Search Your Music Here ....">
+         <span class="search-btn result-btn" id="do-search-btn">GO!</span>
+         <div id="autocomplete-options-cont">
+         </div>
+
+        <div class="search-heading">
+              <img src="./assets/images/3.gif" alt="" srcset="">
+              &nbsp;YOUR SEARCHED MUSIC IS HERE&nbsp;
+              <img src="./assets/images/3.gif" alt="" srcset="">
             </div>
-          <div class="column">
-           <a href="#"><img src="assets/images/m.jpg" alt=""></a>
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Pop <i class="fas fas fa-bullhorn"></i></div>
-          </div></span>
-        </div>
-        <div class="column">
-         <img src="assets/images/n.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Beats <i class="fas fa-headphones"></i></div>
-        </div></span>
-      </div>
-    <div class="column">
-     <img src="assets/images/o.jpg" alt="">
-          <span style="cursor:pointer"onclick="openNav()"> <div class="overlay">
-              <div class="text">Romantic <i class = "far fa-heart "></i></div>
-    </div></span>
-         </div>
-      
-     </div>
-      </div>
-      
-      <div id="Albums" class="tabcontent">
-           <div class="menu">
-            <button class="menulinks" onclick="openMenu(event,'Hindi')" id="selected">HINDI</button>
-            <button class="menulinks" onclick="openMenu(event,'English')" >ENGLISH</button>
-            <button class="menulinks" onclick="openMenu(event,'Punjabi')" >PUNJABI</button>
-           </div>
-           <div id="Hindi" class="menucontent">
-            <div id="row">
-              <div class="column">
-                 <img src="assets/images/h1.jpg" alt="">
-                 <a href="#">    <div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                    </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/h2.jpg" alt="">
-               <a href="#"><div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-                </div>        
-                <div class="column">
-                <img src="assets/images/h3.jpg" alt="">
-                <a href="#"><div class="overlay">
-                    <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-                </div>
-               <div class="column">
-               <img src="assets/images/h4.jpg" alt="">
-               <a href="#"> <div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-                </div>
-               <div class="column">
-               <img src="assets/images/h5.jpg" alt="">
-               <a href="#"><div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/h6.jpg" alt="">
-               <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/h7.jpg" alt="">
-               <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-               </div>
-               <div class="column">
-                 <img src="assets/images/h8.jpg" alt="">
-                 <a href="#"><div class="overlay">
-                    <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                 </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/h9.jpg" alt="">
-               <a href="#"> <div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/h10.jpg" alt="">
-               <a href="#"><div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-             </div>
-             
-          </div>
-           </div>
-           <div id="English" class="menucontent">
-              <div id="row">
-                  <div class="column">
-                     <img src="assets/images/e1.jpg" alt="">
-                     <a href="#">    <div class="overlay">
-                          <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                        </div></a>
-                  </div>
-                  <div class="column">
-                   <img src="assets/images/e2.jpg" alt="">
-                   <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                    </div>        
-                    <div class="column">
-                    <img src="assets/images/e3.jpg" alt="">
-                    <a href="#"><div class="overlay">
-                        <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                    </div>
-                   <div class="column">
-                   <img src="assets/images/e4.jpg" alt="">
-                   <a href="#"> <div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                    </div>
-                   <div class="column">
-                   <img src="assets/images/e5.jpg" alt="">
-                   <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                  </div>
-                  <div class="column">
-                   <img src="assets/images/e6.jpg" alt="">
-                   <a href="#"><div class="overlay">
-                          <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                  </div>
-                  <div class="column">
-                   <img src="assets/images/e7.jpg" alt="">
-                   <a href="#"><div class="overlay">
-                          <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                   </div>
-                   <div class="column">
-                     <img src="assets/images/e8.jpg" alt="">
-                     <a href="#"><div class="overlay">
-                        <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                     </div></a>
-                  </div>
-                  <div class="column">
-                   <img src="assets/images/e9.jpg" alt="">
-                   <a href="#"> <div class="overlay">
-                          <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                  </div>
-                  <div class="column">
-                   <img src="assets/images/e10.jpg" alt="">
-                   <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                   </div></a>
-                 </div>
-                 
-              </div>
-           </div>
-          <div id="Punjabi" class="menucontent">
-          <div id="row">
-              <div class="column">
-                 <img src="assets/images/p1.jpg" alt="">
-                 <a href="#">    <div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                    </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/p2.jpg" alt="">
-               <a href="#"><div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-                </div>        
-                <div class="column">
-                <img src="assets/images/p3.jpg" alt="">
-                <a href="#"><div class="overlay">
-                    <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-                </div>
-               <div class="column">
-               <img src="assets/images/p4.jpg" alt="">
-               <a href="#"> <div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-                </div>
-               <div class="column">
-               <img src="assets/images/p5.jpg" alt="">
-               <a href="#"><div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/p6.jpg" alt="">
-               <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/p7.jpg" alt="">
-               <a href="#"><div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-               </div>
-               <div class="column">
-                 <img src="assets/images/p8.jpg" alt="">
-                 <a href="#"><div class="overlay">
-                    <div class="text">Listen <i class="fas fa-headphones"></i></div>
-                 </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/p9.jpg" alt="">
-               <a href="#"> <div class="overlay">
-                      <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-              </div>
-              <div class="column">
-               <img src="assets/images/p10.jpg" alt="">
-               <a href="#"><div class="overlay">
-                  <div class="text">Listen <i class="fas fa-headphones"></i></div>
-               </div></a>
-             </div>
-             
-          </div>
-           </div>
+            <div id="pre-search-div" class="search-result">
+               <img src="https://i.ya-webdesign.com/images/transparent-dancer-cartoon-8.gif" alt="" srcset="">
+            </div>
+            <div id="post-search-div" class="search-result hide">
+
+            </div>
       </div>  
-      <div id="Fav" class="tabcontent">
-          <div class="menu2">
-              <button class="menulinks2" onclick="openlist(event,'Hindisongs')" id="activeone">HINDI</button>
-              <button class="menulinks2" onclick="openlist(event,'Englishsongs')" >ENGLISH</button>
-              <button class="menulinks2" onclick="openlist(event,'Punjabisongs')" >PUNJABI</button>
-             </div>
-             <div id="Hindisongs" class="menucontent2">
-                <ul id="Hinlist" class="list-group">
+      <div id="Contact" class="tabcontent">
+             <h3 class="contact-heading">Leave Your Comment</h3>
+             <div id="comment">
+             <div id="form-container">     
+              <div id="form">
+                  <form action="">
+                  <label for="name">Full Name</label>
+                  <input type="text" name="name"placeholder="Your name goes here.." required>
+                  <label for="email">Email Address</label>
+                  <input type="email" name="email" placeholder="Your Email id goes here.." required>
+                  <label for="comment">Comment</label>
+                  <textarea name="comment" id="" cols="20" rows="5" placeholder="Your feedback goes here.." required></textarea>
+                  <input type="submit" value="Send Message">
+                  </form>
+              </div>
+              <div id="history">
+                  <h2>About Us:</h2>
+                  <p>
+                    <br>
+                    MoodPlay is a music streaming platform and online music store operated. It allows the user to access their favourite songs at any place ,at any time. Songs are just a click away. You can make your own playlist and save all your favourite songs as per your choice. It also allows the user to search for the songs.
+                    <br>
+                    <br>
+                    <span class="motto">"Music is to the soul what words are to the mind"</span>
+                  </p>
+                  <h2>Get in Touch:</h2>
+                  <div id="social-media-cont">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-snapchat-ghost"></a>
+                  </div>
+              </div>
 
-                </ul>
              </div>
-             <div id="Englishsongs" class="menucontent2">
-               <ul id="Englist" class="listgroup">
-
-               </ul>
-             </div>
-             <div id="Punjabisongs" class="menucontent2">
-               <ul id="Punlist" class="list-group">
-
-               </ul>
-             </div>
+          </div> 
       </div>
-      <div id="allsongs" class="popupsongs">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="popupsongs-content">
-        <ul id="listall" >
-        </ul>
-        </div>
-      </div>
-
-      <div id="Songs" class="tabcontent">
-            <ul id="songList" class="list-group">
-
-            </ul>
-      </div>  
-
       <div id="Saved" class="tabcontent">
         <button id="save" class="saving" ><i class="far fa-save fa-5x "> Save</i></button>
         <br><br>
-        <ul id="playList" class="list-group">
-
-          
-        </ul>
+        <div id="playListResult">
+          <img src="https://www.animationplayhouse.com/box_empty.gif" class="not-found hide" id="not-found-playList" alt="" srcset="">
+          <ul id="playList" class="list-group hide">
+          </ul>
+        </div>
       </div>
+      
     <div id="player">
       <audio  id="audio" controls>
           <source src="">
       </audio>
       <div class="row">
-           <div class="col-2">
-             <button id="backward"><i class="fas fa-backward fa-5x"></i></button>
-             <button id="play-pause"></button>
-             <button id="forward"><i class="fas fa-forward fa-5x"></i></button>
+           <div class="col-3" id="currentSongInfo"  >
+             <div id="image-container" >
+               <img src="" alt="" id="songImageplaying">
+             </div>
+             <div id="info-container">
+               <h4 id="songNameplaying"></h4>
+               <h5 id="singerName"></h5>
+               <span id="SongPlayingId" class="hide"></span>
+             </div>
            </div>
-           <div class="col-10">
+           <div class="col-9">
+             <div id="controls">
+                <button id="backward" ><i class="fas fa-backward fa-3x"></i></button>
+                <button id="play-pause"></button>
+                <button id="forward" ><i class="fas fa-forward fa-3x"></i></button>
+                <button ><i class="fas fa-plus fa-3x"id="addtoplay"></i></button>
+             </div>
              <div class="slideWrapper">
-                <input type="range" value="0" id="slider">
+                <input type="range" value="0" id="slider" >
                   <span id="songCovered"></span>
               </div>
            </div>
         </div>
     </div>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>      
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>      
+    
 </body>
 </html>
