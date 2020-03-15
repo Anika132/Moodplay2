@@ -8,7 +8,7 @@ function doAjax(parameter){
             mode:"no-cors",
             headers: 
             {
-                 "Access-Control-Allow-Origin": "https://anika132.github.io/Moodplay2/",
+                 "Access-Control-Allow-Origin": "https://anika132.github.io",
                  "Content-Type": "application/json"
             }
       }).then(response=>response.json().then(json=>{
