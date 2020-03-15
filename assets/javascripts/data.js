@@ -3,7 +3,14 @@
 function doAjax(parameter){
     var pr = new Promise((resolve,reject)=>{
         const url =`https://itunes.apple.com/search?term=${parameter}&media=music`;
-        fetch(url).then(response=>response.json().then(json=>{
+        fetch(url,{
+            method: "get",
+            headers: 
+            {
+                 "Access-Control-Allow-Origin": "https://anika132.github.io/Moodplay2/",
+                 "Content-Type": "application/json"
+            }
+        }).then(response=>response.json().then(json=>{
            resolve(json.results); 
         })).catch(err=>console.log(err));
     });
