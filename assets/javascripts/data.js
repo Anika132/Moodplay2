@@ -5,9 +5,10 @@ function doAjax(parameter){
         const url =`https://itunes.apple.com/search?term=${parameter}&media=music`;
         fetch(url,{
             method: "get",
+            mode:"no-cors",
             headers: 
             {
-//                  "Access-Control-Allow-Origin": "https://anika132.github.io/Moodplay2/",
+                 "Access-Control-Allow-Origin": "https://anika132.github.io/Moodplay2/",
                  "Content-Type": "application/json"
             }
       }).then(response=>response.json().then(json=>{
